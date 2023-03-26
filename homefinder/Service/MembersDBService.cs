@@ -20,8 +20,16 @@ namespace homefinder.Service
         public void Register(Members newMember)
         {
             newMember.password = HashPassword(newMember.password);
-            string sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES 
-            ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','{newMember.identity}','0')";
+            string sql = string.Empty;
+            //小帥改
+            if (newMember.identity==0)
+            {
+                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','{newMember.identity}','0')";
+            }
+            else if (newMember.identity==1)
+            {
+                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','{newMember.identity}','1')";
+            }
             try
             {
                 conn.Open();

@@ -2,6 +2,7 @@
 using homefinder.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,7 +31,7 @@ namespace homefinder.Controllers
         public ActionResult InsertRental(Rental newRental)
         {
             Members Data = new Members();
-            Data.account = User.Identity.Name;
+            Data.account = User.Identity.Name; //他是取啥勒
             newRental.Member = membersService.GetDataByAccount(Data.account);
             houseService.InsertHouse_Rental(newRental);
             return RedirectToAction("Index","House");
@@ -42,6 +43,13 @@ namespace homefinder.Controllers
         [HttpPost]
         public ActionResult InsertEquipment(Equipment newEquipment)
         {
+            //房屋照片
+            if (newEquipment.img1!=null)
+            {
+                string filename = Path.GetFileName(newEquipment.img1);
+                //還沒改完
+                return RedirectToAction("Index");
+            }
             houseService.InsertHouse_Equipment(newEquipment);
             return RedirectToAction("Index", "House");
         }

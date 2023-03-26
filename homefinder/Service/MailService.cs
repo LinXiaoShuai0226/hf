@@ -41,7 +41,7 @@ namespace homefinder.Service
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(gmail_mail);
             mail.To.Add(ToEmail);
-            mail.Subject = " 會員註冊確認信 ";
+            mail.Subject = " HomeFinder註冊確認信 ";
             mail.Body = MailBody;
             mail.IsBodyHtml = true;
             SmtpServer.Send(mail);
