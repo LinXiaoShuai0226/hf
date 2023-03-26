@@ -24,11 +24,11 @@ namespace homefinder.Service
             //小帥改
             if (newMember.identity==0)
             {
-                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','{newMember.identity}','0')";
+                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','0','0')";
             }
             else if (newMember.identity==1)
             {
-                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','{newMember.identity}','1')";
+                sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','1','0')";
             }
             try
             {
@@ -182,7 +182,7 @@ namespace homefinder.Service
             Members LoginMember = GetDataByAccount(Account);
             if (LoginMember.identity == 2)
             {
-                Role += ",lessor";
+                Role += ",publisher";
             }
             return Role;
         }

@@ -8,7 +8,7 @@ namespace homefinder.Models
     public class BookList
     {
         public Guid booklist_id { get; set; }
-        public string lessee { get; set; }
+        public string renter { get; set; }
         public Guid rental_id { get; set; }
         public Guid booktime_id { get; set; }
         public Members Member { get; set; } = new Members();

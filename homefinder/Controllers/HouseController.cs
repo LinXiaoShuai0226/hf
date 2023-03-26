@@ -14,7 +14,6 @@ namespace homefinder.Controllers
     public class HouseController : Controller
     {
         private readonly HouseDBService houseService = new HouseDBService();
-        private readonly MembersDBService membersService = new MembersDBService();
         #region 首頁=>感覺要用block囉還有分頁
         public ActionResult Index(HomeViewModel Data)
         {
@@ -23,25 +22,23 @@ namespace homefinder.Controllers
         }
         #endregion
         #region 新增Rental
-        //[Authorize(Roles = "lessor")]
+        //[Authorize(Roles = "publisher")]
         //public ActionResult InsertHouse()
         //{
         //    return PartialView();
         //}
-        [Authorize(Roles = "lessor")]
+        [Authorize(Roles = "publisher")]
         [HttpPost]
         public ActionResult InsertRental(Rental newRental)
         {
-            Members Data = new Members();
-            Data.account = User.Identity.Name;
-            newRental.Member = membersService.GetDataByAccount(Data.account);
+            newRental.Member.account = User.Identity.Name;//不確定是否有抓到房東
             houseService.InsertHouse_Rental(newRental);
             return RedirectToAction("Index","House");
         }
         #endregion
 
         #region 新增Equipment
-        [Authorize(Roles = "lessor")]
+        [Authorize(Roles = "publisher")]
         [HttpPost]
         public ActionResult InsertEquipment(InsertEquipmentViewModel newEquipment)
         {
@@ -76,7 +73,7 @@ namespace homefinder.Controllers
         #region 修改房屋
         #endregion
         #region 刪除房屋
-        [Authorize(Roles = "lessor")] 
+        [Authorize(Roles = "publisher")] 
         public ActionResult Delete(Guid Id)
         {
             houseService.DeleteRental(Id);

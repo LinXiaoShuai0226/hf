@@ -18,7 +18,7 @@ namespace homefinder.Service
         public Rental GetRentalById(Guid Id)
         {
             Rental Data = new Rental();
-            string sql = $@"select * from RENTAL where Id='{Id}'";
+            string sql = $@"select * from RENTAL where rental_id='{Id}'";
             try
             {
                 conn.Open();
@@ -130,7 +130,7 @@ namespace homefinder.Service
         {
             StringBuilder sql = new StringBuilder();
             sql.AppendLine($@" DELETE FROM RENTAL WHERE rental_id = {Id}; ");
-            sql.AppendLine($@" DELETE FROM EQUIPMENT WHERE rental_id = {Id}; ");
+            sql.AppendLine($@" DELETE FROM EQUIPMENT WHERE euipment_id = {Id}; ");
             try
             {
                 conn.Open();
