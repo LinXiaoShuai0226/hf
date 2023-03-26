@@ -19,6 +19,8 @@ namespace homefinder.Models
         public string content { get; set; }
         [DisplayName("地址")]
         public string address { get; set; }
+        [DisplayName("樓層")]
+        public string floor { get; set; }
         [DisplayName("面積")]
         public float area { get; set; }
         [DisplayName("租金")]
@@ -37,6 +39,17 @@ namespace homefinder.Models
         public bool tenant { get; set; }
         [DisplayName("上傳時間")]
         public DateTime uploadtime { get; set; }
+
+        //設備equipment
+        public string equipmentname { get; set; }
+        public string img1 { get; set; }
+        public string img2 { get; set; }
+        public string img3 { get; set; }
+        public string img4 { get; set; }
+        public string img5 { get; set; }
+        public string img6 { get; set; }
+        public string img7 { get; set; }
+        public string img8 { get; set; }
 
         public Members Member { get; set; } = new Members();
     }
