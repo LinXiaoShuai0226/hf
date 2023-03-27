@@ -184,6 +184,10 @@ namespace homefinder.Service
             {
                 Role += ",publisher";
             }
+            if (LoginMember.identity == 0)
+            {
+                Role += ",admin";
+            }
             return Role;
         }
         #endregion

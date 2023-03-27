@@ -246,7 +246,7 @@ namespace homefinder.Service
         }
         #endregion
         #region 審核房屋
-        public bool CheckUpload(Guid Id)
+        public void CheckUpload(Guid Id)
         {
             string sql = $@"update RENTAL set check='1' where rental_id='{Id}'";
             try
@@ -265,7 +265,7 @@ namespace homefinder.Service
             }
 
             //這裡感覺怪怪的
-            return true;
+            //return true;
         }
         #endregion
     }
