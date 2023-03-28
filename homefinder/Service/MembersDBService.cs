@@ -21,7 +21,6 @@ namespace homefinder.Service
         {
             newMember.password = HashPassword(newMember.password);
             string sql = string.Empty;
-            //小帥改
             if (newMember.identity==0)
             {
                 sql = $@"INSERT INTO Members (account,password,name,email,phone,authcode,identity,sorce) VALUES ('{newMember.account}','{newMember.password}','{newMember.name}','{newMember.email}','{newMember.phone}','{newMember.authcode}','0','0')";

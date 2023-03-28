@@ -31,8 +31,7 @@ namespace homefinder.Controllers
         [HttpPost]
         public ActionResult InsertRental(InsertRentalViewModel newRental)
         {
-            //應該有抓到房東8
-            newRental.rental.publisher = User.Identity.Name;   
+            newRental.rental.Member.account = User.Identity.Name;   
 
             //房屋照片，那如果有八張呢
             for (int i = 0; i < 8; i++)
