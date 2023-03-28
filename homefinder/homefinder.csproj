@@ -140,6 +140,7 @@
     <Compile Include="Service\MailService.cs" />
     <Compile Include="Service\MembersDBService.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModel\HomeDetailViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\InsertRentalViewModel.cs" />
     <Compile Include="ViewModel\MembersLoginViewModel.cs" />

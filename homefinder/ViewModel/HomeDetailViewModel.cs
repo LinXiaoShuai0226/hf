@@ -6,9 +6,8 @@ using homefinder.Models;
 
 namespace homefinder.ViewModel
 {
-    public class HomeViewModel
+    public class HomeDetailViewModel
     {
-        public Rental rental { get; set; }
-        public bool isCheck { get; set; }
+        public Rental Rentaldetail { get; set; }
     }
 }
